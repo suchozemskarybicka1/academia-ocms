@@ -1,0 +1,16 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    id:
+        label: ID
+        disabled: true
+    name:
+        label: 'Student name'
+        span: full
+        type: text
+    late:
+        label: Late
+        span: auto
+        type: checkbox

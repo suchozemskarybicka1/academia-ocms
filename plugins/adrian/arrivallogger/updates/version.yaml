@@ -1,0 +1,4 @@
+1.0.1: First version of Arrivallogger
+1.0.2:
+    - 'Creating DB with name and late'
+    - create_arrivalloggers_table.php

@@ -1,0 +1,21 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        searchable: true
+    name:
+        label: Name
+        type: text
+        searchable: true
+        sortable: true
+    late:
+        label: Late
+        type: number
+        sortable: true
+    created_at:
+        label: Date
+        type: datetime
+        format: H:i:s j. F Y

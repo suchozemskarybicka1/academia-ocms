@@ -1,0 +1,4 @@
+1.0.1: First version of Hook
+1.0.2:
+  - add desc and skills column to arrivallogger table 
+  - update_arrivallogger_table.php

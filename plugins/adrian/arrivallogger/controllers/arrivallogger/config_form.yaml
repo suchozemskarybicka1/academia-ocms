@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Arrivallogger
+
+# Model Form Field configuration
+form: $/adrian/arrivallogger/models/arrivallogger/fields.yaml
+
+# Model Class name
+modelClass: Adrian\Arrivallogger\Models\Arrivallogger
+
+# Default redirect location
+defaultRedirect: adrian/arrivallogger/arrivallogger
+
+# Create page
+create:
+    title: Create Arrivallogger
+    redirect: adrian/arrivallogger/arrivallogger/update/:id
+    redirectClose: adrian/arrivallogger/arrivallogger
+
+# Update page
+update:
+    title: Edit Arrivallogger
+    redirect: adrian/arrivallogger/arrivallogger
+    redirectClose: adrian/arrivallogger/arrivallogger
+
+# Preview page
+preview:
+    title: Preview Arrivallogger
