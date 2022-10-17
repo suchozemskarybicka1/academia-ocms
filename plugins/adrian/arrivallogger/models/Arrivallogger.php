@@ -63,7 +63,11 @@ class Arrivallogger extends Model
      */
     public $hasOne = [];
     public $hasMany = [];
-    public $belongsTo = [];
+    
+    public $belongsTo = [
+        'user' => ['RainLab\User\Models\Users']
+    ];
+
     public $belongsToMany = [];
     public $morphTo = [];
     public $morphOne = [];
