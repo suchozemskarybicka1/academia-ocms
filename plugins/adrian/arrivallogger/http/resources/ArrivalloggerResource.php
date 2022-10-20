@@ -8,6 +8,8 @@
             return [
                 "id" => $this->id,
                 "name" => $this->name,
+                "late" => $this->late,
+                "created_at" => date($this->created_at)
             ];
         }
         

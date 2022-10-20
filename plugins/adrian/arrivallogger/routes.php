@@ -4,8 +4,14 @@ use Adrian\Arrivallogger\Models\Arrivallogger;
 use Adrian\Arrivallogger\Http\Resources\ArrivalloggerResource;
 
 
-Route::get('students-arrival', function () {
-    return new ArrivalloggerResource(Arrivallogger::find(1));
+Route::group(['prefix' => 'resource'], function() {
+    Route::get('student-arrival/{id}', function ($id) {
+        return new ArrivalloggerResource(Arrivallogger::find($id));
+    });
+
+    Route::get('students-arrival', function () {
+        return ArrivalloggerResource::collection(Arrivallogger::all());
+    });
 });
 
 Route::group(['prefix' => 'api'], function() {
