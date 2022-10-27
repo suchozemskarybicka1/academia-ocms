@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Adrian\Arrivallogger\Http\Resources\ArrivalloggerResource;
 use Adrian\Arrivallogger\Models\Arrivallogger;
 use Illuminate\Routing\Controller;
+use LibUser\Userapi\Http\Resources\UserResource;
 
 
 class ArrivalloggerController extends Controller
@@ -33,10 +34,8 @@ class ArrivalloggerController extends Controller
             ->get());
     }
 
-    public function addUserId()
+    public function getUserId()
     {
-        if (Auth::check()) {
-            // code...
-        }
-
+        return UserResource::user()->id;
+    }
 }
