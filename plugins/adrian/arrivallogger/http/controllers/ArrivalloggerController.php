@@ -7,35 +7,36 @@ use Adrian\Arrivallogger\Http\Resources\ArrivalloggerResource;
 use Adrian\Arrivallogger\Models\Arrivallogger;
 use Illuminate\Routing\Controller;
 use LibUser\Userapi\Http\Resources\UserResource;
+use LibUser\Userapi\Models\User;
 
 
 class ArrivalloggerController extends Controller
 {
 
-    public function arrivals()
+    public function index()
     {
         return ArrivalloggerResource::collection(Arrivallogger::all());
     }
 
-    public function arrival($name)
+    public function show($name)
     {
         return ArrivalloggerResource::collection(Arrivallogger::where('name', 'LIKE', $name)->get());
     }
 
-    public function orderArrivals()
+    public function showOrdered()
     {
         return ArrivalloggerResource::collection(Arrivallogger::orderBy('created_at', 'desc')->get());
     }
     
-    public function filterArrival($name, $late)
+    public function showLateOrName($name, $late)
     {
         return ArrivalloggerResource::collection(Arrivallogger::where('name', 'LIKE', $name)
             ->orWhere('late', 'LIKE', $late)
             ->get());
     }
 
-    public function getUserId()
+    public function getAuthUser()
     {
-        return UserResource::user()->id;
+        return Auth::user();
     }
 }
