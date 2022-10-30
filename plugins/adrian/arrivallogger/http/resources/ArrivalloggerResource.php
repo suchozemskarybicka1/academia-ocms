@@ -9,7 +9,8 @@
                 "id" => $this->id,
                 "name" => $this->name,
                 "late" => $this->late,
-                "created_at" => date($this->created_at)
+                "created_at" => date($this->created_at),
+                "user_id" => $this->user_id
             ];
         }
         

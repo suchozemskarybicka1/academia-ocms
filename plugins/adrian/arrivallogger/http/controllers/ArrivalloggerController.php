@@ -35,8 +35,20 @@ class ArrivalloggerController extends Controller
             ->get());
     }
 
-    public function getAuthUser()
+    public function indexAuthUser()
     {
-        return Auth::user();
+        return Auth::user()->name;
     }
+
+    public function store() 
+    {
+        $Arrivallogger = new Arrivallogger;
+        $Arrivallogger->name = Auth::user()->name;
+        $Arrivallogger->late = date('H:i:s') > '08:00:00';
+        $Arrivallogger->user_id = Auth::user()->id;
+        $Arrivallogger->save();
+
+        return ArrivalloggerResource::make($Arrivallogger);
+    }
+
 }

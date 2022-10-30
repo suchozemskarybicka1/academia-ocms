@@ -14,7 +14,10 @@ Route::get('order-arrivals', [ArrivalloggerController::class, 'showOrdered']);
 
 Route::get('filter-arrival/{name}/{late}', [ArrivalloggerController::class, 'showLateOrName']);
 
-
 Route::middleware(['auth'])->group (function() {
-    Route::get('get-auth-user', [ArrivalloggerController::class, 'getAuthUser']);    
+  
+    Route::get('get-auth-user', [ArrivalloggerController::class, 'indexAuthUser']);    
+  
+    Route::post('add-user-id', [ArrivalloggerController::class, 'store']);
+
 });
