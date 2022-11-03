@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Adrian\Arrivallogger\Http\Resources\ArrivalloggerResource;
 use Adrian\Arrivallogger\Models\Arrivallogger;
 use Illuminate\Routing\Controller;
+use Event;
 
 
 class ArrivalloggerController extends Controller
@@ -13,8 +14,11 @@ class ArrivalloggerController extends Controller
 
     public function index()
     {
+
+        Event::fire('adrian.arrivallogger.requestArrivals');
+
         $authId = Auth::user()->id;
-        return Arrivallogger::where('user_id', 'LIKE', $authId)->get();
+        return Arrivallogger::where('user_id', '=', $authId)->get();
     }
 
     public function store() 
@@ -27,6 +31,5 @@ class ArrivalloggerController extends Controller
 
         return ArrivalloggerResource::make($Arrivallogger);
     }
-
 
 }

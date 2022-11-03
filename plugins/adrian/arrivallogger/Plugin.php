@@ -3,7 +3,7 @@
 use Backend;
 use System\Classes\PluginBase;
 use RainLab\User\Models\User;
-
+use Events;
 /**
  * Arrivallogger Plugin Information File
  */
@@ -44,6 +44,11 @@ class Plugin extends PluginBase
         User::extend(function($model){
             $model->hasMany['arrivallogger'] = ['Adrian\Arrivallogger\Models\Arrivallogger'];
         });
+    
+        Event::listen('adrian.arrivallogger.requestArrivals', function () {
+            return 'Requested arrivals';
+        });
+    
     }
 
     /**
